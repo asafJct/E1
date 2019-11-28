@@ -3,13 +3,18 @@ package primitives;
 public class Ray {
 	private Vector vec;
 	private Point3D p;
-
+	/**
+	 * *********** c'ctor ***********
+	 * 
+	 * @param vec , direction Vector.
+	 * @param p   , a point on the Ray
+	 */
 	public Ray(Vector vec, Point3D p) {
 
 		this.vec = vec.normalize();
 		this.p = p;
 	}
-
+	/************** Getters ************* */
 	public Vector getVector() {
 		return vec;
 	}
