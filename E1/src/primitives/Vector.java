@@ -7,6 +7,10 @@ public class Vector {
 	Point3D head;
 
 	final public static Point3D Zero = new Point3D(0, 0, 0);
+/***********c'ctor  ************
+	 * @exception do not allow defining zero point.
+	 * @throws newIllegalException()
+	 */
 
 	public Vector(Point3D head) {
 
@@ -20,7 +24,7 @@ public class Vector {
 			HeadPoint = new Point3D(x, y, z);
 		this.head = HeadPoint;
 	}
-
+	/********* Getters************* */
 	public Point3D getHead() {
 		return head;
 	}
@@ -39,10 +43,10 @@ public class Vector {
 	}
 
 	/**
-	 * add function
-	 * 
+	 * add function : Vector.add(Vector)
+	 * sum of two vectors equals to the equivalent vector.
 	 * @param other
-	 * @return
+	 * @return equivalent vector
 	 */
 	public Vector add(Vector other) {
 		Point3D temp;
@@ -54,10 +58,10 @@ public class Vector {
 	}
 
 	/**
-	 * subtract function
-	 * 
-	 * @param other
-	 * @return
+	 * subtract function : Vector.sub(Vector)
+	 * Subtract define as the sum of vector + -(other).
+	 * @param other , type Vector
+	 * @return equivalent vector.
 	 */
 	public Vector subtract(Vector other) {
 		Point3D temp;
@@ -71,9 +75,9 @@ public class Vector {
 
 	/**
 	 * dot product multiplication
-	 * 
-	 * @param other
-	 * @return
+	 * (a,b,c) dotProduct (h,y,k) = a*h+b*y+c*k
+	 * @param other , type Vector 
+	 * @return  outcome of the formula below.
 	 */
 	public double dotProduct(Vector other) {
 		double temp;
@@ -82,12 +86,13 @@ public class Vector {
 				+ this.head.getZ().multiply(other.getHead().getZ()).get());
 		return temp;
 	}
-
 	/**
 	 * cross product multiplication
-	 * 
-	 * @param other
-	 * @return
+	 * define as the result of
+	 * (a,b,c) crossProduct (h,y,f) = (b*f-c*y,c*h-a*f,a*y-b*h).
+	 * @param other , type Vector .
+	 * @return orthogonal Vector.
+	 * @throws an exception will be thrown , if Vectors are orthogonal.
 	 */
 	public Vector crossProduct(Vector other) {
 
@@ -114,8 +119,7 @@ public class Vector {
 
 	/**
 	 * squared length of the Vector
-	 * 
-	 * @return
+	 * @return |vec| squared.
 	 */
 	public double length2() {
 		double a = this.head.getX().get();
@@ -127,8 +131,9 @@ public class Vector {
 
 	/**
 	 * length of the Vector
-	 * 
-	 * @return
+	 * define as size of Vector 
+	 * |v|= sqrt(x*x + y*y + z*z)
+	 * @return double norma of Vector
 	 */
 	public double length() {
 		return Math.sqrt(length2());
@@ -136,9 +141,9 @@ public class Vector {
 
 	/**
 	 * change size of the Vector
-	 * 
-	 * @param num
-	 * @return
+	 *  (lamda) * (a Vector)
+	 * @param num , type double 
+	 * @return a Vector multiply by a scale number.
 	 */
 	public Vector scale(double num) {
 		Point3D temp;
@@ -150,9 +155,10 @@ public class Vector {
 	}
 
 	/**
-	 * normalize vector
-	 * 
-	 * @return
+	 * normalize Vector 
+	 * Receiving a normal direction Vector 
+	 * without change head.
+	 * @return normal Vector.
 	 */
 	public Vector normalize() {
 		Vector otherHead;
